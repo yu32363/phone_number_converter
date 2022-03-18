@@ -39,4 +39,10 @@ void main() {
     phoneNumber6 = converter.validateMobileNumber(phoneNumber6);
     expect(phoneNumber6, 'null');
   });
+  test('ถ้าเบอร์โทรมีอักระภาษาไทยแบบไม่รู้ตัว return null', () {
+    dynamic phoneNumber7 = 'ุ0814015096';
+    final converter = PhoneNumberConverter();
+    phoneNumber7 = converter.validateMobileNumber(phoneNumber7);
+    expect(phoneNumber7, 'null');
+  });
 }
