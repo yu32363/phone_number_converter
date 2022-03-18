@@ -18,6 +18,25 @@ void main() {
     dynamic phoneNumber3 = '081401509A';
     final converter = PhoneNumberConverter();
     phoneNumber3 = converter.validateMobileNumber(phoneNumber3);
-    expect(phoneNumber3, isNull);
+    expect(phoneNumber3, 'null');
+  });
+  test('ถ้าเบอร์โทรแปลงแล้วเกิน 11 หลักต้อง return null', () {
+    dynamic phoneNumber4 = '06881234567';
+    final converter = PhoneNumberConverter();
+    phoneNumber4 = converter.validateMobileNumber(phoneNumber4);
+    expect(phoneNumber4, 'null');
+  });
+  test('ถ้าเบอร์โทรมี 12 หลักแต่แปลงออกมาแล้วเกิน 11 หลัก ต้อง return null',
+      () {
+    dynamic phoneNumber5 = '066812345679';
+    final converter = PhoneNumberConverter();
+    phoneNumber5 = converter.validateMobileNumber(phoneNumber5);
+    expect(phoneNumber5, 'null');
+  });
+  test('ถ้าเบอร์โทรมี 14 หลักต้อง return null', () {
+    dynamic phoneNumber6 = '66881234567890';
+    final converter = PhoneNumberConverter();
+    phoneNumber6 = converter.validateMobileNumber(phoneNumber6);
+    expect(phoneNumber6, 'null');
   });
 }
